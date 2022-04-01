@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1738
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Httpd", "Httpd\Httpd.csproj", "{14EDDB69-E25D-4211-86AE-4C31035AE50A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14EDDB69-E25D-4211-86AE-4C31035AE50A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14EDDB69-E25D-4211-86AE-4C31035AE50A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14EDDB69-E25D-4211-86AE-4C31035AE50A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14EDDB69-E25D-4211-86AE-4C31035AE50A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A31B7EB-EDE8-4DB7-9A66-BB7048837EF0}
+	EndGlobalSection
+EndGlobal
