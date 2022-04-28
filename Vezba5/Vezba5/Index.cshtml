@@ -1,0 +1,63 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    @using Vezba5.Models;
+
+    @{ 
+        User u = (User)Session["USER"];
+
+        var message = Request["message"] != null ? Request["message"] : "";
+
+        if (message != "")
+        {
+            <p><font color="Red">@message</font></p>
+            if (message.Contains("LoggedOut"))
+            {
+                u.Logout();
+                Session["USER"] = null;
+            }
+        }
+    }
+
+    @if (u != null && u.LoggedIn)
+    {
+        <p>Hello @u.Username</p>
+        <p>You are already logged in. Do you wish to logout?</p>
+        <a href="~/Index.cshtml?message=LoggedOut">Logout</a>
+    }
+    else
+    {
+        <h2>Login</h2>
+        <form action="../Views/Home.cshtml" method="post">
+            <table>
+                <tr>
+                    <td>Username: </td>
+                    <td>
+                        <input type="text" name="username" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password: </td>
+                    <td>
+                        <input type="password" name="password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="login" value="Login"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <p><a href="../Views/Register.cshtml">REGISTER</a></p>
+    }
+</body>
+</html>

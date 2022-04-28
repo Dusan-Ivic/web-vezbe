@@ -1,0 +1,72 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    @using Vezba5.Models;
+
+    @{
+        User u = (User)Session["USER"];
+    }
+
+    @if (u != null && u.LoggedIn)
+    {
+        <p>Hello @u.Username</p>
+        <p>You are currently logged in. Do you wish to logout?</p>
+        <a href="../Index.cshtml?message=LoggedOut">LOGOUT</a>
+    }
+    else
+    {
+        <h2>Register</h2>
+        <form action="../Views/Home.cshtml" method="post">
+            <table>
+                <tr>
+                    <td>First Name:</td>
+                    <td>
+                        <input type="text" name="firstName" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Last Name:</td>
+                    <td>
+                        <input type="text" name="lastName" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td>
+                        <input type="text" name="username" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input type="password" name="password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>User Type:</td>
+                    <td>
+                        <select name="userType">
+                            <option value="ADMINISTRATOR">Administrator</option>
+                            <option value="MODERATOR">Moderator</option>
+                            <option value="GUEST">Guest</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="REGISTER" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    }
+</body>
+</html>

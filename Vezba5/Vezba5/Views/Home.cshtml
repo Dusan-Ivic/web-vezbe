@@ -1,0 +1,92 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    @using Vezba5.Models;
+
+    @{
+        User u = (User)Session["USER"];
+
+        if (u == null)
+        {
+            u = new User();
+            Session["USER"] = u;
+        }
+
+        var deleteUser = Request["delete"] != null ? Request["delete"] : "";
+
+        if (deleteUser != "")
+        {
+            Users.users.Remove(deleteUser);
+        }
+
+        var filterUser = Request["filter"] != null ? Request["filter"] : "";
+
+        if (!u.LoggedIn)
+        {
+            u.Username = Request["username"] != null ? Request["username"] : "";
+            u.Password = Request["password"] != null ? Request["password"] : "";
+
+            if (Request["userType"] != null)
+            {
+                Enum.TryParse(Request["userType"], true, out UserType userType);
+                u.Type = userType;
+                u.Register();
+            }
+
+            u.Login();
+        }
+    }
+    @if (u.LoggedIn)
+    {
+        <p>Hello @u.Username</p>
+
+        <p>Filter by type: </p>
+        <form>
+            <select name="filter">
+                <option value="ADMINISTRATOR">Administrator</option>
+                <option value="MODERATOR">Moderator</option>
+                <option value="GUEST">Guest</option>
+            </select>
+            <input type="submit" value="FILTER" />
+        </form>
+
+        <table>
+            @foreach (User user in Users.users.Values)
+            {
+                if ((!filterUser.Equals("") && filterUser.Equals(user.Type.ToString())) || filterUser.Equals(""))
+                {
+                    <tr>
+                        <td>@user.Username</td>
+                        @if (u.Type.Equals(UserType.ADMINISTRATOR) || u.Type.Equals(UserType.MODERATOR))
+                        {
+                            <td>
+                                <a href="~/Views/Home.cshtml?deleteUser=@user.Username">Delete</a>
+                            </td>
+                        }
+                    </tr>
+                }
+            }
+        </table>
+
+        <br />
+        <a href="~/Index.cshtml?message=LoggedOut">LOGOUT</a>
+
+        <br />
+        <a href="~/Index.cshtml">INDEX</a>
+
+        <br />
+        <a href="~/Views/Register.cshtml">REGISTER</a>
+    }
+    else
+    {
+        Response.Redirect("~/Index.cshtml?message=Error");
+    }
+</body>
+</html>
