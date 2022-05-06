@@ -1,0 +1,65 @@
+﻿<html>
+<head>
+    <title>Slozeni oblik vezbi 1</title>
+    <!-- TODO: Add your code here... -->
+    <style>
+        .label {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- TODO: Add your code here... -->
+    <h1>Slozeni oblik vezbi 1</h1>
+
+    <h3>Prijava</h3>
+    <form accept-charset="UTF-8" action="http://localhost:8080/prijava">
+        <table>
+            <tr>
+                <td class="label">Ime:</td>
+                <td><input type="text" name="ime"/></td>
+            </tr>
+            <tr>
+                <td class="label">Prezime:</td>
+                <td><input type="text" name="prezime"/></td>
+            </tr>
+            <tr>
+                <td class="label">JMBG:</td>
+                <td><input type="text" name="jmbg"/></td>
+            </tr>
+            <tr>
+                <td class="label">Tip vakcine:</td>
+                <td>
+                    <select name="tipVakcine">
+                        <option value="Pfizer-BioNTech">Pfizer-BioNTech</option>
+                        <option value="Sinopharm">Sinopharm</option>
+                        <option value="Sputnik V">Sputnik V</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Prva doza?</td>
+                <td><input type="checkbox" name="prvaDoza"/></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Dodaj"/></td>
+            </tr>
+        </table>
+        <input type="hidden" name="prvaDoza" value="off"/>
+    </form>
+
+    <h3>Pretraga</h3>
+    <form accept-charset="UTF-8" action="http://localhost:8080/pretraga">
+        <table>
+            <tr>
+                <td>Prezime:</td>
+                <td>
+                    <input type="text" name="prezime"/>
+                    <input type="submit" value="Trazi"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
