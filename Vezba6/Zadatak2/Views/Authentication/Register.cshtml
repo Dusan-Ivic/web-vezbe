@@ -1,0 +1,48 @@
+﻿@model Zadatak2.Models.User
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+<div>
+    @ViewBag.Message
+</div>
+d
+<form action="Register" method="post">
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td>
+                <input type="text" name="username" />
+            </td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>
+                <input type="password" name="password" />
+            </td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td>
+                <input type="number" name="age" />
+            </td>
+        </tr>
+        <tr>
+            <td>Role:</td>
+            <td>
+                <select name="role">
+                    <option value="administrator">Administrator</option>
+                    <option value="moderator">Moderator</option>
+                    <option value="guest">Gost</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Register" />
+            </td>
+        </tr>
+    </table>
+</form>

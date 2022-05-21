@@ -1,0 +1,31 @@
+﻿@using Zadatak2.Models
+@model IEnumerable<Product>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Web shop</h2>
+<p>Welcome @ViewBag.User.Username</p>
+
+<table>
+    <tr>
+        <th>Shopping list</th>
+    </tr>
+    @foreach (Product item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            <td>
+                <form method="post" action="~/Cart/Add">
+                    <input type="text" name="productId" value="@item.Id" hidden />
+                    <input type="submit" value="Add" />
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+<form action="~/Cart/Index">
+    <input type="submit" value="Cart" />
+</form>

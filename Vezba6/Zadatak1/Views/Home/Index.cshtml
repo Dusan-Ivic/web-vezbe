@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div>@ViewBag.Message</div>
+
+<h2>Lista korisnika</h2>
+
+<form action="/Users/Search">
+    <select name="role">
+        <option value=""></option>
+        <option value="administrator">Administrator</option>
+        <option value="moderator">Moderator</option>
+        <option value="guest">Gost</option>
+    </select>
+    <input type="submit" value="Pretrazi" />
+</form>
+
+<table class="table">
+    <tr>
+        <th>Korisnici</th>
+    </tr>
+    @foreach (var item in ViewBag.users)
+    {
+        <tr>
+            <td>@item.Username</td>
+            <td>@item.Role</td>
+            <td>
+                <a href="/Users/Delete?username=@item.Username">Obrisi</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<form action="/Register">
+    <input type="submit" value="Dodaj novog korisnika" />
+</form>

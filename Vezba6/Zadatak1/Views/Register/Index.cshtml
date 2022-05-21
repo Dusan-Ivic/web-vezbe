@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Registracija</h2>
+<form action="~/Register/Add" method="post">
+    <table>
+        <tr>
+            <td>Korisnicko ime:</td>
+            <td>
+                <input type="text" name="username" />
+            </td>
+        </tr>
+        <tr>
+            <td>Lozinka:</td>
+            <td>
+                <input type="password" name="password" />
+            </td>
+        </tr>
+        <tr>
+            <td>Starost:</td>
+            <td>
+                <input type="number" name="age" />
+            </td>
+        </tr>
+        <tr>
+            <td>Tip korisnika:</td>
+            <td>
+                <select name="role">
+                    <option value="administrator">Administrator</option>
+                    <option value="moderator">Moderator</option>
+                    <option value="guest">Gost</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Registruj se" />
+            </td>
+        </tr>
+    </table>
+</form>

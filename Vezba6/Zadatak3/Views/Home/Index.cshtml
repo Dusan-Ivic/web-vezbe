@@ -1,0 +1,27 @@
+﻿@using Zadatak3.Models
+@model IEnumerable<UploadedFile>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<form method="post" action="/Home/UploadFile" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <input type="submit" name="Upload" />
+    @ViewBag.Message
+</form>
+
+<table>
+    <tr>
+        <th>Uploaded files</th>
+    </tr>
+    @foreach (var file in Model)
+    {
+        <tr>
+            <td>@file.FileName</td>
+            <td>
+                <img src="~/Files/@file.FileName" style="width:100px; height:100px" />
+            </td>
+        </tr>
+    }
+</table>
