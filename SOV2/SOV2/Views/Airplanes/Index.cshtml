@@ -1,0 +1,41 @@
+﻿@using SOV2.Models
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+<table border="1" cellpadding="5">
+    <tr>
+        <td colspan="6" align="center" style="font-weight:bold">Avioni</td>
+    </tr>
+    <tr>
+        <th>Id</th>
+        <th>Naziv</th>
+        <th>Broj sedista</th>
+        <th>Raspon krila</th>
+        <th>Proizvodjac</th>
+        <th>Prekookeanski let?</th>
+    </tr>
+    @foreach (Avion avion in ViewBag.avioni)
+    {
+        <tr>
+            <td>@avion.Id</td>
+            <td>@avion.Naziv</td>
+            <td>@avion.BrojSedista</td>
+            <td>@avion.RasponKrila</td>
+            <td>@avion.Proizvodjac</td>
+            @if (avion.PrekookeanskiLet == null)
+            {
+                <td>Ne</td>
+            }
+            else
+            {
+                <td>Da</td>
+            }
+        </tr>
+    }
+</table>
+
+<br />
+<a href="~/Home/Index">Pocetna stranica</a>

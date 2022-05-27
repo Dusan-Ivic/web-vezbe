@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3 style="color:red">@ViewBag.Message</h3>
+
+<h3>Unos novog aviona</h3>
+<form method="post" action="~/Home/Add">
+    <table>
+        <tr>
+            <td>Id:</td>
+            <td>
+                <input type="text" name="id" />
+            </td>
+        </tr>
+        <tr>
+            <td>Naziv:</td>
+            <td>
+                <input type="text" name="naziv" />
+            </td>
+        </tr>
+        <tr>
+            <td>Broj sedista:</td>
+            <td>
+                <input type="number" name="brojSedista" />
+            </td>
+        </tr>
+        <tr>
+            <td>Raspon krila:</td>
+            <td>
+                <input type="text" name="rasponKrila" />
+            </td>
+        </tr>
+        <tr>
+            <td>Proizvodjac:</td>
+            <td>
+                <select name="proizvodjac">
+                    <option value="Boeing">Boeing</option>
+                    <option value="Airbus">Airbus</option>
+                    <option value="Bombardier">Bombardier</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Prekookeanski let?</td>
+            <td>
+                <input type="checkbox" name="prekookeanskiLet" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Dodaj" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+<h3>Pretraga</h3>
+<form method="post" action="~/Airplanes/Search">
+    <table>
+        <tr>
+            <td>Proizvodjac:</td>
+            <td>
+                <select name="proizvodjac">
+                    <option value="Boeing">Boeing</option>
+                    <option value="Airbus">Airbus</option>
+                    <option value="Bombardier">Bombardier</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Trazi" />
+            </td>
+        </tr>
+    </table>
+</form>
